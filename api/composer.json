@@ -1,0 +1,8 @@
+{
+    "require": {
+        "twilio/sdk": "^6.36",
+        "stripe/stripe-php": "^7.121",
+        "mailslurp/mailslurp-client-php": "^15.7",
+        "zero-bounce/sdk": "^1.1"
+    }
+}

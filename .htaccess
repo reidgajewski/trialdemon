@@ -1,0 +1,11 @@
+RewriteEngine on
+
+
+RewriteCond %{HTTP_HOST} ^www\.trialdemon\.com$
+RewriteRule ^/?$ "http\:\/\/trialdemon\.com\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} !^www.trialdemon.com$ [NC]
+RewriteRule ^(.*)$ http://www.trialdemon.com/index [L,R=301]
+
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^([^\.]+)$ ./trialdemon/public/$1.php [NC,L]

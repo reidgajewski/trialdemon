@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /cdn-cgi/l/email-protection
+Disallow: /api
+
+Sitemap: https://www.trialdemon.com/sitemap.xml
