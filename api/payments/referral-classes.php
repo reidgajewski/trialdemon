@@ -82,7 +82,7 @@ class ReferralClass extends Dbh {
        
         $secondsInWeek = 604800;
 
-        \Stripe\Stripe::setApiKey('sk_test_51KMKykIUyyqkBxkCpt6AvOJ9r2RR2e8dF36qmDoceVMfWPCQoqrhFYdLs3za0rk3oGTZBmby6pPs6Gw3a8WlIzhQ00YIks8ncw');
+        \Stripe\Stripe::setApiKey('stripe api key');
         try {
             $subscription = \Stripe\Subscription::retrieve($users_subscriptionId);
             $pause_timestamp = $subscription->pause_collection;

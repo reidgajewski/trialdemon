@@ -123,7 +123,7 @@ class SignupContr extends Signup
 
     private function validEmail()
     {
-        ZeroBounce::Instance()->initialize("497a24ff650c49f6abeab0a589ae0e04");
+        ZeroBounce::Instance()->initialize("api  key");
 
         $response = ZeroBounce::Instance()->validate(
             $this->email,              // The email address you want to validate

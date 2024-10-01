@@ -13,7 +13,7 @@ class Signup extends Dbh
         $email->addTo($recipient);
         $email->setTemplateId("d-ec33f3795d874128ac9dd60093b67dfd");
 
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('api key');
         try {
             $response = $sendgrid->send($email);
         } catch (Exception $e) {

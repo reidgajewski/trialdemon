@@ -70,7 +70,7 @@ class handlers extends dbh {
         $emaill->addTo($recipient);
         $emaill->setTemplateId("d-522b6fe4518b4e09bed0f6222f512e8d");
 
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('sgapikey');
         try {
             $response = $sendgrid->send($emaill);
         } catch (Exception $e) {
@@ -101,7 +101,7 @@ class handlers extends dbh {
     }
 
     public function paymentNotification(){
-        $api_key = 'a6cd18e129bb75aa99a87dc113150d8e';
+        $api_key = 'logsnag api';
         $data = array(
             "project" => "trialdemon",
             "channel" => "payment",
@@ -151,8 +151,8 @@ class handlers extends dbh {
 $handle = new handlers;
 
 // both are currently in live mode
-\Stripe\Stripe::setApiKey('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');
-$endpoint_secret = 'whsec_Bv24BnpwwEFbzY4FrJWA6GlVGLIeqTXi';
+\Stripe\Stripe::setApiKey('stripe key');
+$endpoint_secret = 'ep secret';
 
 // stripe stuff 
 $payload = @file_get_contents('php://input');

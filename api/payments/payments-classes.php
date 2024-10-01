@@ -31,7 +31,7 @@ class CustomersAndPayments extends Dbh
         $postSubscriptionId = $this->connect()->prepare('UPDATE users SET users_subscriptionId = ? WHERE users_email = ?;');
 
         try {
-            $stripe = new \Stripe\StripeClient('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');
+            $stripe = new \Stripe\StripeClient('stripe api key');
             $customer = $stripe->customers->create(
                 [
                     'email' => $email
@@ -96,7 +96,7 @@ class CustomersAndPayments extends Dbh
 
         // creating new subscription with customer id
         $postSubscriptionId = $this->connect()->prepare('UPDATE users SET users_subscriptionId = ? WHERE users_email = ?;');
-        $stripe = new \Stripe\StripeClient('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');
+        $stripe = new \Stripe\StripeClient('stripe api key');
         try {
             $subscription = $stripe->subscriptions->create([
                 'customer' => $customerId,
@@ -215,9 +215,7 @@ class CustomersAndPayments extends Dbh
 
     public function getSubscription($email)
     {
-        // stripe api test/live priv keys
-        //	sk_test_51KMKykIUyyqkBxkCpt6AvOJ9r2RR2e8dF36qmDoceVMfWPCQoqrhFYdLs3za0rk3oGTZBmby6pPs6Gw3a8WlIzhQ00YIks8ncw
-        //  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
+
 
         // getting subscripiton info
         $getSubscription = $this->connect()->prepare('SELECT users_subscriptionId FROM users WHERE users_email = ?;');
@@ -268,10 +266,9 @@ class CustomersAndPayments extends Dbh
         $dbsubscriptionid = $getSubscriptionId->fetchAll(PDO::FETCH_ASSOC);
         $users_subscriptionId = $dbsubscriptionid[0]["users_subscriptionId"];
 
-        // 	sk_test_51KMKykIUyyqkBxkCpt6AvOJ9r2RR2e8dF36qmDoceVMfWPCQoqrhFYdLs3za0rk3oGTZBmby6pPs6Gw3a8WlIzhQ00YIks8ncw
-        //  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
 
-        \Stripe\Stripe::setApiKey('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');
+
+        \Stripe\Stripe::setApiKey('stripe api key');
 
         try {
             \Stripe\Subscription::update(
@@ -293,12 +290,9 @@ class CustomersAndPayments extends Dbh
     public function portalSession($email)
     {
 
-        // 	sk_test_51KMKykIUyyqkBxkCpt6AvOJ9r2RR2e8dF36qmDoceVMfWPCQoqrhFYdLs3za0rk3oGTZBmby6pPs6Gw3a8WlIzhQ00YIks8ncw
-        //  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
 
 
-
-        $stripe = new \Stripe\StripeClient('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');
+        $stripe = new \Stripe\StripeClient('stripe api key');
 
         $stripe->billingPortal->configurations->create(
             [
@@ -322,7 +316,7 @@ class CustomersAndPayments extends Dbh
 
 
 
-        \Stripe\Stripe::setApiKey('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');
+        \Stripe\Stripe::setApiKey('stripe api key');
 
 
         // Authenticate your user.
@@ -344,7 +338,7 @@ class CustomersAndPayments extends Dbh
     public function pausePayments()
     {
 
-        \Stripe\Stripe::setApiKey('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');
+        \Stripe\Stripe::setApiKey('stripe api key');
 
         try {
             \Stripe\Subscription::update(

@@ -40,7 +40,7 @@ class NewEmailClass extends Dbh {
     public function deleteInbox($oldInbox) {
 
         // configure mailslurp client
-        $apiKey = "cde8a29c1bf6da3e529e8681c3d50b55130a3a6e54e62fd0a5b1a1c56c00e2be";
+        $apiKey = "api key";
         $config = MailSlurp\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', $apiKey);
     
         // delete an inbox
@@ -104,7 +104,7 @@ class NewEmailClass extends Dbh {
         if($users_verified === "1" && $users_SubscriptionStatus === "1") {
 
             // configure mailslurp client
-            $apiKey = "cde8a29c1bf6da3e529e8681c3d50b55130a3a6e54e62fd0a5b1a1c56c00e2be";
+            $apiKey = "api key";
             $config = MailSlurp\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', $apiKey);
 
             // getting current inbox
@@ -170,7 +170,7 @@ class NewEmailClass extends Dbh {
 
     public function checkEmail($email) {
         $getInboxId = $this->connect()->prepare('SELECT users_inboxid FROM users WHERE users_email = ?;');
-        $apiKey = "cde8a29c1bf6da3e529e8681c3d50b55130a3a6e54e62fd0a5b1a1c56c00e2be";
+        $apiKey = "api key";
         $config = MailSlurp\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', $apiKey);
 
         if(!$getInboxId->execute(array($email))) {
@@ -200,7 +200,7 @@ class NewEmailClass extends Dbh {
 
     public function listInboxes($page) {
         // configure mailslurp client
-        $apiKey = "cde8a29c1bf6da3e529e8681c3d50b55130a3a6e54e62fd0a5b1a1c56c00e2be";
+        $apiKey = "api key";
         $config = MailSlurp\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', $apiKey);
 
         $inboxController = new MailSlurp\Apis\InboxControllerApi(null, $config);

@@ -92,7 +92,7 @@ class NewCardHolder extends Dbh
     $name = $firstName . " " . $lastName;
 
     try {
-      \Stripe\Stripe::setApiKey('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');
+      \Stripe\Stripe::setApiKey('stripe api key');
       $cardholder = \Stripe\Issuing\Cardholder::create([
         'name' => $name,
         'email' => $email,
@@ -151,7 +151,7 @@ class NewCardHolder extends Dbh
     )));
 
     $headers = array();
-    $headers[] = 'Authorization: Bearer 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'; // replace 'sk_test_...' with your actual secret key
+    $headers[] = 'Authorization: Bearer stripe api key'; 
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     $result = curl_exec($ch);
@@ -276,7 +276,7 @@ class UpdateCardHolder extends Dbh
     $users_cardHolderId = $dbcardholderid[0]["users_cardHolderId"];
 
     try {
-      $stripe = new \Stripe\StripeClient('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');
+      $stripe = new \Stripe\StripeClient('stripe api key');
       $stripe->issuing->cardholders->update(
         $users_cardHolderId,
         [
@@ -430,7 +430,7 @@ class NewCard extends Dbh
 
     try {
 
-      $stripe = new \Stripe\StripeClient('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');
+      $stripe = new \Stripe\StripeClient('stripe api key');
       $card = $stripe->issuing->cards->create(
         [
           'cardholder' => $users_cardHolderId,
@@ -489,7 +489,7 @@ class NewCard extends Dbh
       exit();
     }
 
-    $stripe = new \Stripe\StripeClient('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');
+    $stripe = new \Stripe\StripeClient('stripe api key');
     $card = $stripe->issuing->cards->retrieve(
       $users_cardId,
       ['expand' => ['number', 'cvc',]]
@@ -625,7 +625,7 @@ class GenerateNewCard extends Dbh
 
     try {
 
-      $stripe = new \Stripe\StripeClient('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');
+      $stripe = new \Stripe\StripeClient('stripe api key');
       $card = $stripe->issuing->cards->create(
         [
           'cardholder' => $users_cardHolderId,
@@ -684,7 +684,7 @@ class GenerateNewCard extends Dbh
       exit();
     }
 
-    $stripe = new \Stripe\StripeClient('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');
+    $stripe = new \Stripe\StripeClient('stripe api key');
     $card = $stripe->issuing->cards->retrieve(
       $users_cardId,
       ['expand' => ['number', 'cvc',]]
@@ -748,7 +748,7 @@ class IssuingStats extends Dbh
   public function listAuths()
   {
     $stripe = new \Stripe\StripeClient(
-      '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'
+      'stripe api key'
     );
     $auths = $stripe->issuing->authorizations->all([
       'limit' => 999999,

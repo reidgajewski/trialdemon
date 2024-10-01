@@ -5,7 +5,7 @@ class Dbh {
     protected function connect() {
         try {
             $username = "root";
-            $password = "Nikki200119!25Dollars";
+            $password = "";
             $dbh = new PDO('mysql:host=localhost;dbname=trialdemon', $username, $password);
             return $dbh;
         } catch (PDOException $e) {

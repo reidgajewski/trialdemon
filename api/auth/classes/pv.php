@@ -69,8 +69,8 @@ class AddPhone extends Dbh {
             $dbotp = $stmt2->fetchAll(PDO::FETCH_ASSOC);
             $users_otp = $dbotp[0]["users_otp"];
     
-            $sid = "fuck you";
-            $token = "fuck you";
+            $sid = "key";
+            $token = "key";
     
             $client = new Client($sid, $token);
 
